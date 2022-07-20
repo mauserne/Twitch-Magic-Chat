@@ -1,0 +1,41 @@
+{
+  "name": "Getting Started Example",
+  "description": "트위치 채팅 ",
+  "version": "1.0",
+  "manifest_version": 3,
+  "host_permissions": ["https://www.twitch.tv/*"],
+  "background": {
+    "matches": ["https://www.twitch.tv/*"],
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["https://*.twitch.tv/*"],
+    "exclude_globs": ["https://www.twitch.tv/directory/*",
+      "https://www.twitch.tv/p/*",
+      "https://www.twitch.tv/products/*",
+      "https://www.twitch.tv/*/manager*",
+      "https://www.twitch.tv/*/dashboard",
+      "https://www.twitch.tv/broadcast",
+      "https://www.twitch.tv/messages/*",
+      "https://www.twitch.tv/settings"],
+      "js": ["content.js"],
+    "run_at": "document_end"
+}],
+  "permissions": ["storage", "tabs", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/get_started16.png",
+      "32": "/images/get_started32.png",
+      "48": "/images/get_started48.png",
+      "128": "/images/get_started128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/get_started16.png",
+    "32": "/images/get_started32.png",
+    "48": "/images/get_started48.png",
+    "128": "/images/get_started128.png"
+  },
+  "options_page": "options.html"
+}
