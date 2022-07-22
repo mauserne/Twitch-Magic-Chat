@@ -1,13 +1,17 @@
-let color = '#aaaaaa';
+let color = "#aaaaaa";
 chrome.tabs.onUpdated.addListener((tabId, tab) => {
-  if (tab.url){
-      console.log(tab)
-      chrome.tabs.sendMessage(tabId, {
-      type: "NEW",
-      url: tab.url,
-    }, function(response){
-      console.log(response)
-    });
+  if (tab.url) {
+    console.log(tab);
+    chrome.tabs.sendMessage(
+      tabId,
+      {
+        type: "NEW",
+        url: tab.url,
+      },
+      function (response) {
+        console.log(response);
+      }
+    );
   }
 });
 
