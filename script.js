@@ -38,7 +38,6 @@ window.FindReact = function (el) {
   for (const key in el) {
     if (key.startsWith("__reactInternalInstance$")) {
       const fiberNode = el[key];
-      console.log("fibernode: ") + console.log(fiberNode);
       return fiberNode;
       // return fiberNode && fiberNode.return && fiberNode.return.stateNode;
     }
@@ -115,47 +114,72 @@ function setChatInputValue(text, shouldFocus = true) {
   }
 }
 
-// 채팅 input 내용 리턴받기
-function getChatInputValue() {
-  const element = document.querySelector(CHAT_INPUT);
+///
 
-  const chatInput = getChatInput(element);
-  if (chatInput == null) {
-    return null;
-  }
+//뮤테이션 옵저버
 
-  return chatInput.memoizedProps.value;
+function getChatMessageObject(element) {
+  let msgObject;
+  try {
+    msgObject = getReactInstance(element).return.stateNode.props.message;
+  } catch (_) {}
+
+  return msgObject;
 }
 
-function tagchange() {
-  var chat_line = document.getElementsByClassName("chat-line__message");
+// 변화 감지 설정입니다.
+const config = { attributes: false, childList: true, subtree: true };
 
-  Array.from(chat_line).forEach((element) => {
-    element.setAttribute("style", "cursor: pointer");
-
-    element.addEventListener("click", function () {
-      var chat_text =
-        element.getElementsByClassName("text-fragment")[0].innerHTML;
-      setChatInputValue(chat_text);
-      navigator.clipboard.writeText(chat_text).then(function () {
-        console.log("Pasted content: ", chat_text);
+console.log("ㅂㅂ");
+// 변화가 감지될 때 실행할 콜백 함수
+const callback = function (mutationsList, observer) {
+  for (let mutation of mutationsList) {
+    if (
+      mutation.addedNodes.length == 1 &&
+      mutation.addedNodes[0].className === "chat-line__message"
+    ) {
+      mutation.addedNodes[0].setAttribute("style", "cursor: pointer");
+      mutation.addedNodes[0].addEventListener("click", function () {
+        let msgObject = getChatMessageObject(mutation.addedNodes[0]);
+        var chat_text = msgObject.messageBody;
+        setChatInputValue(chat_text);
+        console.log(mutation.addedNodes[0]);
       });
+    }
+  }
+};
+// 콜백 함수가 연결된 옵저버 인스턴스를 생성합니다.
+const observer = new MutationObserver(callback);
 
-      //navigator.clipboard.readText().then(
-      //clipText => text_field.children[0].innerText = clipText);
-    });
-  });
-}
+// 선택한 노드의 변화 감지를 시작합니다.
+/*
+setTimeout(() => {
+  let targetNode = document.querySelector(
+    ".chat-scrollable-area__message-container"
+  );
+  observer.observe(targetNode, config);
+}, 5000);
+*/
+var interval = setInterval(() => {
+  console.log("인터벌");
+  let targetNode = document.querySelector(
+    ".chat-scrollable-area__message-container"
+  );
+  if (targetNode != null) {
+    observer.observe(targetNode, config);
+    clearInterval(interval);
+    console.log("인터벌종료");
+  }
+}, 1000);
 
-setInterval(tagchange, 5000);
+interval();
+
+console.log(document.querySelector(".chat-scrollable-area__message-container"));
+console.log("end");
 
 /*
-chrome.tabs.onUpdated.addListener((tabId, tab) => {
-	if (tab.url){
-		console.log(tab.url,tabId)
-    chrome.tabs.sendMessage(tabId, 'Hi', data =>{    //a에 Hi를 넣어 보내고 콜백
-    	console.log(data); // Hello!
-    });
-  }  
-});
+todo
+url 변경시 observe 재수행
+채팅 닉네임 클릭방지? 버블링?
+
 */

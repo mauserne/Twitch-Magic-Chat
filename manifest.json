@@ -25,7 +25,7 @@
     "resources": ["script.js"],
     "matches": ["*://*.twitch.tv/*"]
   }],
-  "permissions": ["storage", "tabs", "scripting"],
+  "permissions": ["tabs", "scripting"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
