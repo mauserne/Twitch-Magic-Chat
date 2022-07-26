@@ -130,7 +130,6 @@ function getChatMessageObject(element) {
 // 변화 감지 설정입니다.
 const config = { attributes: false, childList: true, subtree: true };
 
-console.log("ㅂㅂ");
 // 변화가 감지될 때 실행할 콜백 함수
 const callback = function (mutationsList, observer) {
   for (let mutation of mutationsList) {
@@ -148,38 +147,49 @@ const callback = function (mutationsList, observer) {
     }
   }
 };
+
 // 콜백 함수가 연결된 옵저버 인스턴스를 생성합니다.
+
 const observer = new MutationObserver(callback);
 
 // 선택한 노드의 변화 감지를 시작합니다.
-/*
-setTimeout(() => {
-  let targetNode = document.querySelector(
-    ".chat-scrollable-area__message-container"
-  );
-  observer.observe(targetNode, config);
-}, 5000);
-*/
-var interval = setInterval(() => {
-  console.log("인터벌");
-  let targetNode = document.querySelector(
-    ".chat-scrollable-area__message-container"
-  );
-  if (targetNode != null) {
-    observer.observe(targetNode, config);
-    clearInterval(interval);
-    console.log("인터벌종료");
+function startInterval() {
+  let interval = setInterval(() => {
+    console.log("인터벌");
+    let targetNode = document.querySelector(
+      ".chat-scrollable-area__message-container"
+    );
+    if (targetNode != null) {
+      observer.observe(targetNode, config);
+      clearInterval(interval);
+      console.log("인터벌종료");
+    }
+  }, 1000);
+}
+
+startInterval();
+
+let previousUrl = "";
+const urlObserver = new MutationObserver(function (mutations) {
+  if (location.href !== previousUrl) {
+    previousUrl = location.href;
+    console.log(`URL changed to ${location.href}`);
+
+    observer.disconnect();
+    startInterval();
   }
-}, 1000);
+});
+urlObserver.observe(document, { subtree: true, childList: true });
 
-interval();
-
-console.log(document.querySelector(".chat-scrollable-area__message-container"));
 console.log("end");
 
 /*
 todo
-url 변경시 observe 재수행
+(해결)url 변경시 observe 재수행
+ㄴ  urlobsever 새로 만들어서 해결
+
+채팅이 순간 많이 올라오면 프리징 발생 >> 아마도 채팅 하나씩 처리하는 시간때매 그런듯
+
 채팅 닉네임 클릭방지? 버블링?
 
 */
