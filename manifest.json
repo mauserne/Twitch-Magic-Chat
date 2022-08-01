@@ -1,6 +1,6 @@
 {
-  "name": "Getting Started Example",
-  "description": "트위치 채팅 ",
+  "name": "Twitch chat rapid copier",
+  "description": "트위치 채팅 원클릭 복사",
   "version": "1.0",
   "manifest_version": 3,
   "host_permissions": ["https://www.twitch.tv/*"],
