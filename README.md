@@ -6,7 +6,7 @@ Twitch Magic Chat
 
 ## 만든 이유
 
-트위치 채팅에 ㅋㅋㅋ 치기 귀찮아서
+채팅에 ㅋㅋㅋ 치기 귀찮아서
 
 ---
 
@@ -18,14 +18,17 @@ Twitch 사이트가 React 기반이고, input을 slate.js 라이브러리를 통
 
 그리고 React에서 input은 유저가 타이핑을 할때 이벤트를 수신하여 입력되는 글자가 적용이 된다 (추정임) value를 바꿔도 유저의 타이핑이 없으니 이벤트가 수신되지 않아서 적용이 되지 않는다.
 
-그래서 이벤트를 발생시키기 위해 방법을 찾았지만,
+stackoverflow를 뒤져보니 자료가 적었지만 그와중에도 나와 비슷한 고민이 있던 사람이 있었고 다행히 답변도 있었다.
+https://stackoverflow.com/questions/67687889/how-do-i-change-slate-editor-value-using-javascript-dom-manipulation
+
+하지만 저 코드 그냥 베끼기 싫어서
+내 힘으로 해결하고자
+
+이벤트를 발생시키기 위한 방법들을 찾았지만,
 문제는 사이트가 React 기반이고, 이벤트를 state,props을 통해 전달하는데
 React는 VirtualDOM을 이용한다. VirtualDOM에서 DOM으로 정보를 뿌린다(추정)
 
 이런 겹겹이 쌓인 과정속에서 추상화된 이벤트를 찾기가 어려웠다.
-
-stackoverflow를 뒤져보니 자료가 적었지만 그와중에도 나와 비슷한 고민이 있던 사람이 있었고 다행히 답변도 있었다.
-https://stackoverflow.com/questions/67687889/how-do-i-change-slate-editor-value-using-javascript-dom-manipulation
 
 트위치에서 유명한 익스텐션인 BTTV Extension 의 깃허브를 알게되었고, 내가 원하는 기능을 야무지게 구현해놓았더라.
 https://github.com/night/betterttv

@@ -1,18 +1,34 @@
-let title = document.getElementsByTagName('h1')[0];
+let title = document.getElementsByTagName("h1")[0];
 chrome.tabs.onUpdated.addListener((tabId, tab) => {
-	
-	if (tab.url){
-		console.log(tab.url)
-		
-		if (tab.url.includes('www.twitch.tv')){
-			title.innerText = `You are in twitch now!!`
-		} else {
-			title.innerText = `You are in ${tab.url} now`
-		}
-	} 
-		
+  if (tab.url) {
+    console.log(tab.url);
 
-  });
+    if (tab.url.includes("www.twitch.tv")) {
+      title.innerText = `You are in twitch now!!`;
+    } else {
+      title.innerText = `You are in ${tab.url} now`;
+    }
+  }
+});
+
+const $toggle = document.querySelector(".toggleSwitch");
+const modal = document.querySelector(".modal");
+
+chrome.storage.local.get(["switch"], function (result) {
+  if (result.switch) {
+    $toggle.className = "toggleSwitch active";
+  }
+});
+
+$toggle.onclick = () => {
+  $toggle.classList.toggle("active");
+  if ($toggle.className === "toggleSwitch active") {
+    chrome.storage.local.set({ switch: true }, () => console.log("set true"));
+  } else {
+    chrome.storage.local.set({ switch: false }, () => console.log("set false"));
+  }
+  modal.className = "modal show";
+};
 
 /*
 // Initialize butotn with users's prefered color
