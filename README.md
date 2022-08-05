@@ -6,7 +6,7 @@
 
 다른사람의 채팅을 클릭하면, 그 내용을 내 채팅 입력창으로 즉시 가져옵니다.
 
-Click other's chat, Bringing the content into my Chat-input immediately.
+Click other's chat, The content brought into your Chat-input immediately.
 
 ## 만든 이유
 

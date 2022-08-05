@@ -1,7 +1,7 @@
 {
   "name": "Twitch Magic Chat",
   "description": "다른사람의 채팅을 클릭하면, 그 내용을 내 채팅 입력창으로 즉시 가져옵니다.",
-  "version": "1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
   "host_permissions": ["https://www.twitch.tv/*"],
   "background": {
@@ -9,7 +9,7 @@
     "service_worker": "background.js"
   },
   "content_scripts": [{
-    "matches": ["https://*.twitch.tv/*"],
+    "matches": ["https://www.twitch.tv/*"],
     "exclude_globs": ["https://www.twitch.tv/directory/*",
       "https://www.twitch.tv/p/*",
       "https://www.twitch.tv/products/*",
@@ -23,9 +23,9 @@
   }],
   "web_accessible_resources": [{
     "resources": ["script.js"],
-    "matches": ["*://*.twitch.tv/*"]
+    "matches": ["https://www.twitch.tv/*"]
   }],
-  "permissions": ["tabs", "storage"],
+  "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

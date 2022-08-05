@@ -103,16 +103,16 @@ const callback = function (mutationsList, observer) {
   }
 };
 
-const observer = new MutationObserver(callback);
+const chatObserver = new MutationObserver(callback);
 
 function detect_Chatarea() {
   let interval = setInterval(() => {
     let targetNode = document.querySelector(".chat-scrollable-area__message-container");
     if (targetNode != null) {
-      observer.observe(targetNode, config);
+      chatObserver.observe(targetNode, config);
       clearInterval(interval);
     }
-  }, 1000);
+  }, 250);
 }
 
 detect_Chatarea();
@@ -121,7 +121,7 @@ let previousUrl = "";
 const urlObserver = new MutationObserver(function (mutations) {
   if (location.href !== previousUrl) {
     previousUrl = location.href;
-    observer.disconnect();
+    chatObserver.disconnect();
     detect_Chatarea();
   }
 });

@@ -4,12 +4,3 @@ chrome.runtime.onInstalled.addListener(function (details) {
     chrome.storage.local.set({ switch: true });
   }
 });
-
-chrome.tabs.onUpdated.addListener((tabId, tab) => {
-  if (tab.url) {
-    chrome.tabs.sendMessage(tabId, {
-      type: "URL",
-      url: tab.url,
-    });
-  }
-});
