@@ -1,6 +1,6 @@
 {
-  "name": "Twitch chat rapid copier",
-  "description": "트위치 채팅 원클릭 복사",
+  "name": "Twitch Magic Chat",
+  "description": "다른사람의 채팅을 클릭하면, 그 내용을 내 채팅 입력창으로 즉시 가져옵니다.",
   "version": "1.0",
   "manifest_version": 3,
   "host_permissions": ["https://www.twitch.tv/*"],
@@ -25,7 +25,7 @@
     "resources": ["script.js"],
     "matches": ["*://*.twitch.tv/*"]
   }],
-  "permissions": ["tabs", "scripting", "storage"],
+  "permissions": ["tabs", "storage"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

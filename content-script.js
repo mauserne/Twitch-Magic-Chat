@@ -8,5 +8,3 @@ chrome.storage.local.get(["switch"], function (result) {
     (document.head || document.documentElement).appendChild(s);
   }
 });
-
-console.log("content-script");
