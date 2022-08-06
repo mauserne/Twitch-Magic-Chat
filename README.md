@@ -2,6 +2,12 @@
 
 > ### [Chrome Extension] 트위치 채팅 원클릭 복사✨
 
+<img width="50%" src="https://user-images.githubusercontent.com/52377363/183247232-f6b34509-991f-481f-9fac-bfd40162fa8e.png"/>
+
+## 설치
+
+[![Chrome Web Store](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/mgdehebdbghhagjeicebdhkdbkemaefm)
+
 ## 기능 설명
 
 클릭 한 번에 채팅을 복사해오는 확장 프로그램입니다.
