@@ -4,7 +4,15 @@
 
 ## 기능 설명
 
-다른사람의 채팅을 클릭하면, 그 내용을 내 채팅 입력창으로 즉시 가져옵니다.
+클릭 한 번에 채팅을 복사해오는 확장 프로그램입니다.
+
+Copying chat with single-click on Twitch.tv
+
+## 사용법
+
+Twitch Magic Chat을 활성화시키고,
+
+트위치 방송에서 다른사람의 채팅을 클릭하면, 내용을 즉시 나의 채팅 입력창으로 가져옵니다.
 
 Click other's chat, The content brought into your Chat-input immediately.
 

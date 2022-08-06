@@ -1,7 +1,7 @@
 {
-  "name": "Twitch Magic Chat",
-  "description": "다른사람의 채팅을 클릭하면, 그 내용을 내 채팅 입력창으로 즉시 가져옵니다.",
-  "version": "1.0.0",
+  "name": "Twitch Magic Chat - 트위치 채팅 원클릭 복사",
+  "description": "클릭 한 번에 채팅을 복사해오는 확장 프로그램입니다.",
+  "version": "1.0.1",
   "manifest_version": 3,
   "host_permissions": ["https://www.twitch.tv/*"],
   "background": {
