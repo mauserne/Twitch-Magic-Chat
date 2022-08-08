@@ -1,7 +1,7 @@
 {
-  "name": "Twitch Magic Chat - 트위치 채팅 원클릭 복사",
-  "description": "클릭 한 번에 채팅을 복사해오는 확장 프로그램입니다.",
-  "version": "1.0.1",
+  "name": "css-att",
+  "description": "style을 스크립트에서 element에 하나씩 주입하지않고 html에서 모든 태그에 처리합니다",
+  "version": "1.0.2",
   "manifest_version": 3,
   "host_permissions": ["https://www.twitch.tv/*"],
   "background": {

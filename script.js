@@ -93,7 +93,6 @@ const config = { attributes: false, childList: true, subtree: true };
 const callback = function (mutationsList, observer) {
   for (let mutation of mutationsList) {
     if (mutation.addedNodes.length == 1 && mutation.addedNodes[0].className === "chat-line__message") {
-      mutation.addedNodes[0].setAttribute("style", "cursor: pointer");
       mutation.addedNodes[0].addEventListener("click", function () {
         let msgObject = getChatMessageObject(mutation.addedNodes[0]);
         var chat_text = msgObject.messageBody;
