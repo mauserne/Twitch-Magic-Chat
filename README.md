@@ -22,6 +22,10 @@ Twitch Magic Chat을 활성화시키고,
 
 Click other's chat, The content brought into your Chat-input immediately.
 
+## 디자인
+
+<img width="50%" src="https://user-images.githubusercontent.com/52377363/183247372-ffd6c518-cec2-4914-b36e-eff5e4a35f0c.PNG"/>
+
 ## 만든 이유
 
 채팅에 ㅋㅋㅋ 치기 귀찮아서
