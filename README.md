@@ -65,6 +65,45 @@ React는 VirtualDOM을 이용한다. VirtualDOM에서 DOM으로 정보를 뿌린
 </div>
 </details>
 
+## References
+
+본 확장 프로그램을 만들면서 참고한 자료들 입니다.
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+<div markdown="1">
+
+## 크롬 익스텐션
+
+* ### [Getting started - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/getstarted/)
+* [chrome.storage API - Chrome Developers](https://developer.chrome.com/docs/extensions/reference/storage/)
+  * 사용자 설정 저장
+* [Content scripts - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/content_scripts/)
+  * `content-script.js` 를 통해 페이지의 데이터를 제한적으로 읽거나 수정할 수 있다.
+
+## 트위치 채팅 관련기능
+
+- ### [night/BetterTTV/twitch.js - Github.com](https://github.com/night/betterttv/blob/master/src/utils/twitch.js)
+
+### script injection
+- [Use a content script to access the page context variables and functions - stackoverflow.com](https://stackoverflow.com/questions/9515704/use-a-content-script-to-access-the-page-context-variables-and-functions/9517879#9517879)
+
+  * 크롬 익스텐션의 `content-script.js` 는 독립적인 환경위에서 동작하므로, 제한적으로 페이지의 내용을 읽고 쓸 수 있다. 페이지에 스크립트를 주입하면 직접적으로 페이지의 변수나 함수에 접근할 수 있게 된다.
+
+  * 나는 페이지의 reactinstance 속성에 접근이 필요해서 스크립트를 주입했다.
+
+* [MutationObserver Web API - MDN Docs](https://developer.mozilla.org/ko/docs/Web/API/MutationObserver)
+  * DOM 변화를 관찰하는 API
+  * 트위치 채팅창에 채팅이 새로 올라오는 것을 감지하고, URL변화를 감지하기 위해 사용했다.
+
+## 디자인
+
+* [[CSS] 토글 스위치 버튼 만들기 - 나를 제외한 천재들](https://gurtn.tistory.com/161)
+
+</div>
+</details>
+
+
 ## TODO
 
 0. 깃 버젼관리 배우기 🤔
