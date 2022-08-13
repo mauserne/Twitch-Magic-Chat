@@ -88,41 +88,20 @@ function getChatMessageObject(element) {
   return msgObject;
 }
 
-const config = { attributes: false, childList: true, subtree: true };
 
-const callback = function (mutationsList, observer) {
-  for (let mutation of mutationsList) {
-    if (mutation.addedNodes.length == 1 && mutation.addedNodes[0].className === "chat-line__message") {
-      mutation.addedNodes[0].addEventListener("click", function () {
-        let msgObject = getChatMessageObject(mutation.addedNodes[0]);
-        var chat_text = msgObject.messageBody;
-        setChatInputValue(chat_text);
-      });
-    }
+function handler(e) {
+  const wrong_target1 = e.target.closest(".Layout-sc-nxg1ff-0.pqFci.chat-line__username-container");
+  const wrong_target2 = e.target.closest(".Layout-sc-nxg1ff-0.ewbqxu.chat-line__reply-icon");
+  if (wrong_target1 || wrong_target2) {
+    return null;
   }
-};
 
-const chatObserver = new MutationObserver(callback);
-
-function detect_Chatarea() {
-  let interval = setInterval(() => {
-    let targetNode = document.querySelector(".chat-scrollable-area__message-container");
-    if (targetNode != null) {
-      chatObserver.observe(targetNode, config);
-      clearInterval(interval);
-    }
-  }, 250);
+  const target = e.target.closest(".chat-line__message");
+  if (target != null) {
+    let msgObject = getChatMessageObject(target);
+    let chat_text = msgObject.messageBody;
+    setChatInputValue(chat_text);
+  }
 }
 
-detect_Chatarea();
-
-let previousUrl = "";
-const urlObserver = new MutationObserver(function (mutations) {
-  if (location.href !== previousUrl) {
-    previousUrl = location.href;
-    chatObserver.disconnect();
-    detect_Chatarea();
-  }
-});
-
-urlObserver.observe(document, { subtree: true, childList: true });
+document.body.addEventListener("click", handler);
