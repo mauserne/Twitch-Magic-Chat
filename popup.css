@@ -1,22 +1,23 @@
-html{
+html {
   font-size: 60%;
   width: 30rem;
   height: 12rem;
 }
 
-h1{
+h1 {
   margin-left: 1rem;
   font-size: large;
 }
-.modal{
+
+.modal {
   text-align: center;
 }
-.modal.show{
+.modal.show {
   font-weight: bold;
   color: red;
 }
 
-.contact{
+.contact {
   margin-top: 2rem;
   color: darkgray;
   display: flex;
@@ -27,7 +28,6 @@ h1{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .toggleSwitch {
@@ -38,7 +38,7 @@ h1{
   position: relative;
   border-radius: 2rem;
   background-color: #f03d3d;
-  box-shadow:inset 0 0 1.5rem 1px rgba(0 0 0 / 15%);
+  box-shadow: inset 0 0 1.5rem 1px rgba(0 0 0 / 15%);
   cursor: pointer;
 }
 
@@ -47,7 +47,7 @@ h1{
   height: 2.6rem;
   position: absolute;
   top: 50%;
-  left: .2rem;
+  left: 0.2rem;
   transform: translateY(-50%);
   border-radius: 50%;
   box-shadow: 0 0 0.25rem 1px rgba(0 0 0 / 15%);
@@ -59,11 +59,21 @@ h1{
   background: #78d9ff;
 }
 
-.toggleSwitch.active .toggleButton {
-  left: calc(100% - 2.8rem);
-  background: #fff;
+.toggleSwitch.actived-already {
+  transition: none;
+  background: #78d9ff;
 }
 
-.toggleSwitch, .toggleButton {
+.toggleSwitch.active .toggleButton,
+.toggleSwitch.actived-already .toggleButton {
+  left: calc(100% - 2.8rem);
+}
+
+.toggleSwitch,
+.toggleButton {
   transition: all 0.2s ease-in;
+}
+
+.toggleSwitch.actived-already .toggleButton {
+  transition: none;
 }
