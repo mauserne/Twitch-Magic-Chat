@@ -62,6 +62,8 @@ React는 VirtualDOM을 이용한다. VirtualDOM에서 DOM으로 정보를 뿌린
 다운로드했을때 기능을 active 상태로 만들기위해
 [다운로드후 최초 실행 감지](https://stackoverflow.com/questions/2399389/detect-chrome-extension-first-run-update) 방법을 찾아보았다.
 
+---
+
 </div>
 </details>
 
@@ -99,6 +101,8 @@ React는 VirtualDOM을 이용한다. VirtualDOM에서 DOM으로 정보를 뿌린
 ## 디자인
 
 * [[CSS] 토글 스위치 버튼 만들기 - 나를 제외한 천재들](https://gurtn.tistory.com/161)
+
+---
 
 </div>
 </details>
