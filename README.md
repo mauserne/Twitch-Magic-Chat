@@ -96,7 +96,16 @@ React는 VirtualDOM을 이용한다. VirtualDOM에서 DOM으로 정보를 뿌린
 
 * [MutationObserver Web API - MDN Docs](https://developer.mozilla.org/ko/docs/Web/API/MutationObserver)
   * DOM 변화를 관찰하는 API
-  * 트위치 채팅창에 채팅이 새로 올라오는 것을 감지하고, URL변화를 감지하기 위해 사용했다.
+  * 트위치 채팅창에 채팅이 새로 올라오는 것을 감지하고, URL변화를 감지하기 위해 사용했다. 
+
+* [Attach event to dynamic elements in javascript - stackoverflow.com](https://stackoverflow.com/questions/34896106/attach-event-to-dynamic-elements-in-javascript)
+  * 동적인 요소에 클릭 이벤트를 감지하는 방법
+  * MutationObserver 대신 사용하는데 관리도 편하고 성능도 더 좋아진것 같다.
+* [Element.closet() - MDN Docs](https://developer.mozilla.org/ko/docs/Web/API/Element/closest)
+  * 부모요소를 타고 document까지 올라가면서 argument를 발견하면 true를 반환한다.
+  * e.target 은 클릭한 대상에 대해서만 이벤트가 발생해서, closet으로 처리를 해주었다.
+
+
 
 ## 디자인
 
