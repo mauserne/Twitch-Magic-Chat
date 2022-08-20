@@ -126,3 +126,4 @@ React는 VirtualDOM을 이용한다. VirtualDOM에서 DOM으로 정보를 뿌린
 4. deploy
 5. Readme 수정하기 (예쁘게 꾸미기)
 6. 리팩토링하기 (코드 예쁘게 수정하기)
+7. 기능추가 : leaderboard 삭제기능
