@@ -39,7 +39,10 @@ function getChatInput(element = null) {
   try {
     chatInput = searchReactParents(
       FindReact(element || document.querySelector(CHAT_INPUT)),
-      (n) => n.memoizedProps && n.memoizedProps.componentType != null && n.memoizedProps.value != null
+      (n) =>
+        n.memoizedProps &&
+        n.memoizedProps.componentType != null &&
+        n.memoizedProps.value != null
     );
   } catch (_) {}
 
@@ -88,10 +91,9 @@ function getChatMessageObject(element) {
   return msgObject;
 }
 
-
 function handler(e) {
-  const wrong_target1 = e.target.closest(".Layout-sc-nxg1ff-0.pqFci.chat-line__username-container");
-  const wrong_target2 = e.target.closest(".Layout-sc-nxg1ff-0.ewbqxu.chat-line__reply-icon");
+  const wrong_target1 = e.target.closest(".chat-line__username-container");
+  const wrong_target2 = e.target.closest(".chat-line__reply-icon");
   if (wrong_target1 || wrong_target2) {
     return null;
   }
